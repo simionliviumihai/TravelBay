@@ -1,5 +1,9 @@
 install dependencies:
-     $ cd . && npm install
+	cd . && npm install
 
-   run the app:
-     $ DEBUG=TravelBay:* npm start
+run the app:
+	MAC & Linux:
+    	DEBUG=TravelBay:* npm start
+
+	Windows:
+	 	set DEBUG=myapp:* & npm start
