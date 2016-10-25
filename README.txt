@@ -6,4 +6,4 @@ run the app:
         DEBUG=TravelBay:* npm start
 
 	Windows:
-        set DEBUG=myapp:* & npm start
+        set DEBUG=TravelBay:* & npm start

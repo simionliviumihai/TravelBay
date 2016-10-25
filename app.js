@@ -8,12 +8,24 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var about = require('./routes/about');
+var weather_m = require('./lib/weather');
+var handlebars = require('hbs');
+
+// register partials in handlebars
+handlebars.registerPartials(path.join(__dirname, 'views/partials'));
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(function (req, res, next) {
+    if (!res.locals.partials)
+        res.locals.partials = {};
+    res.locals.partials.weather = weather_m.getWeatherData();
+    next();
+});
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
